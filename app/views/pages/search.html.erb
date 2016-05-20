@@ -42,6 +42,33 @@
           zoom: 10,
           center: {lat: 34.052235, lng: -118.243683}
         });
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({'address':"<%=@location%>"}, function(results,status){
+          if (status === google.maps.GeocoderStatus.OK){
+            map.setCenter(results[0].geometry.location);
+            var contentStr =  '<h1><%=@records[0]["location"]%></h1>'+
+              <% @records.each do |row| %>
+                  '<div><%=row["date"]%>  -  #<%=row["hashtag"]%>  (<%=row["count"]%>)</div>' +
+              <% end %>
+                  '';
+            var infowindow = new google.maps.InfoWindow({
+              content: contentStr
+            });
+            var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+            });
+            infowindow.open(map, marker);
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(map,marker); //resultsMap and marker are the variables defined previously
+            });
+            google.maps.event.addListener(map, 'click', function() {
+              infowindow.close();
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
       }
     </script>
     <script async defer
