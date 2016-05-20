@@ -8,7 +8,7 @@ default: &default
   adapter: mysql
   encoding: utf8
   username: root
-  password: rootpass
+  password: <%= ENV['MySQLRootPasswd'] %>
   host: localhost
   port: 3306
   socket: /var/run/mysqld/mysqld.sock
