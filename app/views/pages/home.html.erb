@@ -55,9 +55,21 @@
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
             resultsMap.setCenter(results[0].geometry.location);
+            var contentStr =  '<h1>INFO WINDOW</h1>'+
+                  '<div>My name is Jay Song</div>' +
+                  '<div>It is 2:42 am</div>';
+            var infowindow = new google.maps.InfoWindow({
+              content: contentStr
+            });
             var marker = new google.maps.Marker({
               map: resultsMap,
-              position: results[0].geometry.location
+              position: results[0].geometry.location,
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(resultsMap,marker); //resultsMap and marker are the variables defined previously
+            });
+            google.maps.event.addListener(resultsMap, 'click', function() {
+              infowindow.close();
             });
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
