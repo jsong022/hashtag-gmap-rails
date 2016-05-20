@@ -46,7 +46,7 @@
         geocoder.geocode({'address':"<%=@location%>"}, function(results,status){
           if (status === google.maps.GeocoderStatus.OK){
             map.setCenter(results[0].geometry.location);
-            var contentStr =  '<h1><%=@records[0]["location"]%></h1>'+
+            var contentStr =  '<h1><%=@location%></h1>'+
               <% @records.each do |row| %>
                   '<div><%=row["date"]%>  -  #<%=row["hashtag"]%>  (<%=row["count"]%>)</div>' +
               <% end %>
