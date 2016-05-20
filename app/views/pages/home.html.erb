@@ -1,14 +1,10 @@
-<h1>
-
-
-</h1>
 <% @records.each do |row| %>
   <p>|<%= row['location'] %>|<%= row['hashtag'] %>|<%= row['count'] %>|<%= row['date'] %>|</p>
 <% end %> 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Geocoding service</title>
+    <title>InfoBox Testing</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
@@ -70,7 +66,7 @@
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2-aXLhLiK7SzUkL7n-F3DTB1I-5z5-Q8&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=<%=#{ENV['GoogleMapsAPIKey']}%>&callback=initMap">
     </script>
   </body>
 </html>
