@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use MySQL as the database for Active Record
+# Use MySQL as the database for Active Record for back up plan/functionality testing
 gem 'mysql'
-
+# Use Cassandra as the actual database
 gem 'cassandra-driver'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
