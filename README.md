@@ -1,5 +1,5 @@
 # hashtag-gmap-rails
-## version 0.9.6
+## version 0.9.7
 
 #### Info about application
 ##### Using:
@@ -29,9 +29,9 @@
 - [x] Dynamic SQL query based on location search
 - [x] Search by Location AND Date
 - [x] Switch from MySQL to Cassandra (__NOTE__: still binds to Cassandra server at localhost)
+- [x] Alert pop-ups
 - [ ] Multiple locations & dates in a single search __\*__
 - [ ] Remote database __\*__
 - [ ] Proper deployment to be publicly accessible __\*__
-- [ ] Alert pop-ups __\*__
 
 __\*__ Possible Future Implementation (no immediate plans)
