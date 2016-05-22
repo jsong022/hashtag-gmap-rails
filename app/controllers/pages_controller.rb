@@ -34,7 +34,14 @@ class PagesController < ApplicationController
   def search
     location = params[:location]
     if location == "" then redirect_to '/' and return end
-    qry="SELECT * FROM cs179g.mytable WHERE location = '"+location+"' LIMIT 5;"
+    date = params[:date]
+    if date == "" then
+      qry="SELECT * FROM cs179g.mytable WHERE location = '"+location+"' LIMIT 5;"
+    elsif date =~ /[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+      qry="SELECT * FROM cs179g.mytable WHERE location='"+location+"' AND date='"+date+"';"
+    else
+      redirect_to '/' and return
+    end
     client = CassandraClient.new
     client.connect(['127.0.0.1'])
     @records = client.executeQuery(qry)
