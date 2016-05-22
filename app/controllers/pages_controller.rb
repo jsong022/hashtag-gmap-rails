@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     @records = client.executeQuery(qry)
     client.close()
     if @records.length == 0 then
-      redirect_to '/',alert:'No data available from "'+location+'"!' and return
+      redirect_to '/',alert:'No data available from '+location+'!\ntry Los Angeles, CA or Disneyland' and return
     end
     @location = location
   end
