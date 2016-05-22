@@ -24,7 +24,7 @@
 - [x] Load a map on page
 - [x] Put a static marker & info box on map
 - [x] Geocode locations
-- [x] Static SQL query & result handling
+- [x] Static SQL query & result handling (__NOTE__: binds to localhost MySQL server)
 - [x] Dynamic SQL query based on location search
 - [x] Search by Location AND Date
 - [x] Switch to Cassandra (__NOTE__: still binds to Cassandra server at localhost)
@@ -32,4 +32,4 @@
 - [ ] Remote database __\*__
 - [ ] Proper deployment to be publicly accessible __\*__
 
-__\*__ -- Possible Future Implementation (no immediate plans)
+__\*__ Possible Future Implementation (no immediate plans)
