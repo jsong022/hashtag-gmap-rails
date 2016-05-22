@@ -5,7 +5,8 @@
 ##### Using:
 - Ruby 2.3.0
 - Ruby on Rails 4.2.6
-- Cassandra 2.1.14
+- Apache Cassandra 2.1.14
+- cassandra-driver 2.1.6 
 - Google Maps Javascript API
 
 #### Functionalities:
