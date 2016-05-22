@@ -27,9 +27,9 @@
 - [x] Static SQL query & result handling
 - [x] Dynamic SQL query based on location search
 - [x] Search by Location AND Date
-- [x] Switch to Cassandra (**NOTE**: still binds to Cassandra server at localhost)
-- [ ] Multiple locations & dates in a single search \*
-- [ ] Remote database\*
-- [ ] Proper deployment to be publicly accessible\*
+- [x] Switch to Cassandra (__NOTE__: still binds to Cassandra server at localhost)
+- [ ] Multiple locations & dates in a single search __\*__
+- [ ] Remote database __\*__
+- [ ] Proper deployment to be publicly accessible __\*__
 
-\* -- Possible Future Implementation (no immediate plans)
+__\*__ -- Possible Future Implementation (no immediate plans)
