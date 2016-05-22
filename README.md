@@ -31,4 +31,5 @@
 - [ ] Multiple locations & dates in a single search \*
 - [ ] Remote database\*
 - [ ] Proper deployment to be publicly accessible\*
+
 \* -- Possible Future Implementation (no immediate plans)
