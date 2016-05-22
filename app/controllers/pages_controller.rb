@@ -36,7 +36,7 @@ class PagesController < ApplicationController
     if location == "" then redirect_to '/' and return end
     date = params[:date]
     if date == "" then
-      qry="SELECT * FROM cs179g.mytable WHERE location = '"+location+"' LIMIT 5;"
+      qry="SELECT * FROM cs179g.mytable WHERE location = '"+location+"' ORDER BY date DESC LIMIT 5;"
     elsif date =~ /[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
       qry="SELECT * FROM cs179g.mytable WHERE location='"+location+"' AND date='"+date+"';"
     else

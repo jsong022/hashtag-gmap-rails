@@ -51,7 +51,7 @@
             map.setCenter(results[0].geometry.location);
             var contentStr =  '<h1><%=@location%></h1>'+
               <% @records.each do |row| %>
-                  '<div><%=row["date"]%>  -  #<%=row["hashtag"]%>  (<%=row["count"]%>)</div>' +
+                  '<div><font size=5><%=row["date"]%>  -  #<%=row["hashtag"]%>  (<%=row["count"]%>)</font></div>' +
               <% end %>
                   '';
             var infowindow = new google.maps.InfoWindow({
