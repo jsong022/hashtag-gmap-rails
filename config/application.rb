@@ -1,12 +1,49 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require "rails"
+# Pick the frameworks you want:
+require "active_model/railtie"
+require "active_job/railtie"
+# require "active_record/railtie"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_view/railtie"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
+require 'cassandra'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Gmap
+class CassandraClient
+
+  def initialize()
+    @cluster = nil
+    @session = nil
+  end
+
+  def connect(node)
+    puts "Connecting to cluster."
+    @cluster = Cassandra.cluster(hosts: node)
+    @session = @cluster.connect
+    puts "Cluster: #{@cluster.name}"
+    @cluster.each_host do |host|
+      puts "    Host #{host.ip}: id = #{host.id} datacenter = #{host.datacenter} rack = #{host.rack}"
+    end
+  end
+
+  def executeQuery(qry)
+    results = @session.execute(qry)
+    return results
+  end
+
+  def close()
+    @cluster.close
+  end
+end
+
+module Gmap2
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -19,8 +56,5 @@ module Gmap
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
   end
 end
