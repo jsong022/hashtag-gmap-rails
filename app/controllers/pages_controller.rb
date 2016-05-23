@@ -19,7 +19,14 @@ class PagesController < ApplicationController
     @records = client.executeQuery(qry)
     client.close()
     if @records.length == 0 then
-      redirect_to '/',alert:'No data available from '+location+'!\ntry Los Angeles, CA or Disneyland' and return
+      if @date == "" then
+        msg = ""
+        msg2 = ""
+      else 
+        msg = ' for '+@date
+        msg2 = ' or another date'
+      end
+      redirect_to '/',alert:'No data available from '+location+msg+'!\ntry Los Angeles, CA or Disneyland'+msg2 and return
     end
     @location = location
   end
