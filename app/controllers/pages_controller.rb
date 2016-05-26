@@ -2,10 +2,34 @@ class PagesController < ApplicationController
   def home
   end
 
+  def heatmap
+    @hashtag = params[:hashtag]
+    @date = params[:date]
+    if @hashtag == "" then
+      redirect_to '/', alert:'Hashtag is required to create a heatmap' and return
+    end
+    if @date == "" then
+      redirect_to '/', alert:'Date in YYYY-MM-DD format is required to create a heatmap' and return
+    elsif @date =~ /[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+      qry="SELECT * FROM cs179g.htcrd WHERE hashtag='"+@hashtag+"' AND date='"+@date+"' LIMIT 500000 ALLOW FILTERING;"
+    else
+      redirect_to '/',alert:'Date must be in YYYY-MM-DD format to create a heatmap' and return
+    end
+    client = CassandraClient.new
+    client.connect(['127.0.0.1'])
+    @records = client.executeQuery(qry)
+    puts @records.length
+    client.close()
+    if @records.length == 0 then
+      redirect_to '/',alert:'#'+@hashtag+' was not found for '+@date+'.' and return
+    end
+  end
+
   def search
     location = params[:location]
     if location == "" then 
-      redirect_to '/',alert:'Location is required for the search' and return end
+      redirect_to '/',alert:'Location is required for the search' and return
+    end
     @date = params[:date]
     pts = 0
     if @date == "" then
