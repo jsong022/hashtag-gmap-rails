@@ -21,6 +21,15 @@
     2. Date field was not empty:
       * Return that day's most popular hashtag for the location
       * Put red circles on coordinates where the MPH was found
+2. Create heatmap of a hashtag for a date
+  * For Invalid Searches: redirect to homepage
+    1. Hashtag field was empty
+    2. Date field was empty
+    3. Date was not in YYYY-MM-DD format
+    4. Query returned no database records
+  * For Valid Searches:
+    1. Get all records of the hashtag for the date specified
+    2. Create heatmap from the coordinates
 
 #### To Do List
 - [x] Load a map on page
@@ -32,6 +41,7 @@
 - [x] Switch from MySQL to Cassandra (__NOTE__: still binds to Cassandra server at localhost)
 - [x] Alert pop-ups
 - [x] Mark coordiantes of hashtags found for single day searches
+- [x] Create heatmap of a hashtag for a date
 - [ ] Multiple locations & dates in a single search __\*__
 - [ ] Remote database __\*__
 - [ ] Proper deployment to be publicly accessible __\*__
