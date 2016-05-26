@@ -73,7 +73,9 @@
             map.setCenter(results[0].geometry.location);
             var contentStr =  '<h1><%=@location%></h1>'+
               <% @records.each do |row| %>
-                  '<div><font size=5><%=row["date"]%>  -  #<%=row["hashtag"]%>  (<%=row["count"]%>)</font></div>' +
+                  '<div><font size=5><%=row["date"]%>  -  '+
+                  '#<%=row["hashtag"]%>  '+
+                  '(<%=row["count"]%>)</font></div>' +
               <% end %>
                   '';
             var infowindow = new google.maps.InfoWindow({
@@ -98,6 +100,15 @@
               position: {lat: <%=row['long']%>, lng: <%=row['lat']%>},
               visible: true,
               icon: img
+            });
+            var crd<%=row['id']%> = new google.maps.InfoWindow({
+              content: "<div>(lat: <%=row['long']%>, lng: <%=row['lat']%>)</div>"
+            });
+            google.maps.event.addListener(marker<%=row['id']%>, 'click', function() {
+              crd<%=row['id']%>.open(map,marker<%=row['id']%>); //resultsMap and marker are the variables defined previously
+            });
+            google.maps.event.addListener(map, 'click', function() {
+              crd<%=row['id']%>.close();
             });
             <% end %>
             <% end %>

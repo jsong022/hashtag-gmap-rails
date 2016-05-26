@@ -1,5 +1,5 @@
 # hashtag-gmap-rails
-## version 0.9.8
+## version 0.9.9
 
 #### Info about application
 ##### Using:
@@ -21,6 +21,7 @@
     2. Date field was not empty:
       * Return that day's most popular hashtag for the location
       * Put red circles on coordinates where the MPH was found
+        * on click: show coordinate
 2. Create heatmap of a hashtag for a date
   * For Invalid Searches: redirect to homepage
     1. Hashtag field was empty
@@ -42,6 +43,7 @@
 - [x] Alert pop-ups
 - [x] Mark coordiantes of hashtags found for single day searches
 - [x] Create heatmap of a hashtag for a date
+- [x] Click coordinate markers to show coordinate for single date searches
 - [ ] Multiple locations & dates in a single search __\*__
 - [ ] Remote database __\*__
 - [ ] Proper deployment to be publicly accessible __\*__

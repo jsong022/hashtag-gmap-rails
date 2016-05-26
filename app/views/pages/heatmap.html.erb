@@ -65,14 +65,14 @@
       var map, heatmap;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 5,
           center: {lat: 37, lng: -96.5},
           mapTypeId: google.maps.MapTypeId.HYBRID
         });
 
         heatmap = new google.maps.visualization.HeatmapLayer({
           data: getPoints(),
-          radius: 10,
+          radius: 25,
           opacity: 1.0,
           map: map
         });
