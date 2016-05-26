@@ -68,6 +68,17 @@
             google.maps.event.addListener(map, 'click', function() {
               infowindow.close();
             });
+            <% if @points %>
+            var img = 'https://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0'
+            <% @points.each do |row| %>
+            var marker<%=row['id']%> = new google.maps.Marker({
+              map: map,
+              position: {lat: <%=row['long']%>, lng: <%=row['lat']%>},
+              visible: true,
+              icon: img
+            });
+            <% end %>
+            <% end %>
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
