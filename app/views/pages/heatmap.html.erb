@@ -67,6 +67,7 @@
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: {lat: 37, lng: -96.5},
+          mapTypeId: google.maps.MapTypeId.HYBRID
         });
 
         heatmap = new google.maps.visualization.HeatmapLayer({
