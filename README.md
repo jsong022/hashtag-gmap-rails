@@ -1,5 +1,5 @@
 # hashtag-gmap-rails
-## version 0.9.7
+## version 0.9.8
 
 #### Info about application
 ##### Using:
@@ -20,6 +20,7 @@
       * Return up to 5 records, most recent first
     2. Date field was not empty:
       * Return that day's most popular hashtag for the location
+      * Put red circles on coordinates where the MPH was found
 
 #### To Do List
 - [x] Load a map on page
@@ -30,6 +31,7 @@
 - [x] Search by Location AND Date
 - [x] Switch from MySQL to Cassandra (__NOTE__: still binds to Cassandra server at localhost)
 - [x] Alert pop-ups
+- [x] Mark coordiantes of hashtags found for single day searches
 - [ ] Multiple locations & dates in a single search __\*__
 - [ ] Remote database __\*__
 - [ ] Proper deployment to be publicly accessible __\*__
