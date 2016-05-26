@@ -78,9 +78,9 @@ class PagesController < ApplicationController
         msg = ' for '+@date
         msg2 = ' or another date'
       end
-      alert-msg='No data available from ' + location + msg +
-                '!\ntry Los Angeles, CA or Disneyland' + msg2
-      redirect_to '/',alert:alert-msg and return
+      alertmsg='No data available from ' + location + msg +
+               '!\ntry Los Angeles, CA or Disneyland' + msg2
+      redirect_to '/',alert:alertmsg and return
     end
     @location = location
   end
