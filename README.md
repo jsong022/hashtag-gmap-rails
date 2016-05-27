@@ -1,5 +1,6 @@
 # hashtag-gmap-rails
-## version 0.9.9
+## version 1.0.0
+#### github.com/jsong022/hashtag-gmap-rails
 
 #### Info about application
 ##### Using:
@@ -8,6 +9,30 @@
 - Apache Cassandra 2.1.14
 - cassandra-driver 2.1.6 
 - Google Maps Javascript API
+
+##### Relevant Files:
+* *Gemfile*
+  * list of Ruby gems used by this application
+* *config/application.rb*
+  * contains require statements that applies to this application
+  * also contains CassandraClient class definition
+    * Ruby class using Datastax Cassandra driver for Ruby (cassandra-driver gem)
+* *config/routes.rb*
+  * contains Ruby On Rails routes from address to controller action
+  1. / => pages#home
+  2. /heatmap => pages#heatmap
+  3. /search => pages#search
+* *app/controllers/pages_controller.rb*
+  * contains the 3 controller actions: home, search, heatmap
+  1. home - homepage (just a map with the input boxes)
+  2. search - search for most popular hashtag of location with or without date
+  3. heatmap - create heatmap of all coordinates of a hashtag for a date
+* *app/views/pages/home.html.erb*
+  * view for the pages#home action
+* *app/views/pages/heatmap.html.erb*
+  * view for heatmap of hashtag for date
+* *app/views/pages/search.html.erb*
+  * view for search of database for a location with or without a date
 
 #### Functionalities:
 1. Search Cassandra database for locations
